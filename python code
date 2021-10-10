@@ -1,0 +1,100 @@
+# Least to Greatest Program
+
+print("Please type in a four-digit number at the prompt below.")
+
+num = int(input("Number: "))
+listed = list(map(int, str(num)))
+
+final = num
+finalp2 = "throw2"
+finalPR = "throw"
+finalp2PR = "throw"
+sortmin1 = "throw"
+sortmax1 = "throw"
+
+times = 0
+
+
+
+def add():
+    global final
+    global times
+
+    sortminl = sorted(listed)
+    sortmaxl = sorted(listed, reverse=True)
+
+    strmin = [str(x) for x in sortminl]
+    strmax = [str(x) for x in sortmaxl]
+
+    joinmin = "".join(strmin)
+    joinmax = "".join(strmax)
+
+    intmin = int(joinmin)
+    intmax = int(joinmax)
+
+    final = list(map(int, str(intmax - intmin)))
+
+    
+
+def add2():
+    global final
+    global finalp2
+    global finalp2PR
+    global times
+
+    sortminl = sorted(final)
+    sortmaxl = sorted(final, reverse=True)
+
+    strmin = [str(x) for x in sortminl]
+    strmax = [str(x) for x in sortmaxl]
+
+    joinmin = "".join(strmin)
+    joinmax = "".join(strmax)
+
+    intmin = int(joinmin)
+    intmax = int(joinmax)
+
+    finalp2 = list(map(int, str(intmax - intmin)))
+    finalp2PR = (intmax - intmin)
+
+    times = times + 1
+
+
+def add3():
+    global final
+    global finalPR
+    global times
+
+    sortminl = sorted(finalp2)
+    sortmaxl = sorted(finalp2, reverse=True)
+
+    strmin = [str(x) for x in sortminl]
+    strmax = [str(x) for x in sortmaxl]
+
+    joinmin = "".join(strmin)
+    joinmax = "".join(strmax)
+
+    intmin = int(joinmin)
+    intmax = int(joinmax)
+
+    final = list(map(int, str(intmax - intmin)))
+    finalPR = (intmax - intmin)
+
+    times = times + 1
+
+
+add()
+
+while final != finalp2:
+
+    add2()
+    print("New Number " + str(finalPR))
+    print("Try Amount " + str(times))
+    
+    add3()
+    print("New Number " + str(finalp2PR))
+    print("Try Amount " + str(times))
+
+    if final == finalp2:
+        print("We found a match! The number that the loop occurs on is: " + str(finalp2PR) + " It took us " + str(times) + " tries to get here.")
+        break
